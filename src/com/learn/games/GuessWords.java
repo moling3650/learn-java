@@ -32,7 +32,12 @@ public class GuessWords {
 	}
 
 	private boolean isWin() {
-		return false;
+		for (int i = 0; i < word.length; i++) {
+			if (!guessedLetters.contains(word[i])) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 	public static void main(String[] args) {
@@ -54,6 +59,10 @@ public class GuessWords {
 
 			gw.guessedLetters.add(string);
 			gw.printHiddleWord();
+			if (gw.isWin()) {
+				System.out.println("你已经猜中这个单词了！");
+				break;
+			}
 		}
 	}
 }
